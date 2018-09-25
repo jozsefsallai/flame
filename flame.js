@@ -60,7 +60,7 @@ class Flame {
   /**
    * Initializes the calculation process and returns the
    * answer
-   * @returns {class}
+   * @returns {object}
    */
   init() {
     const { original: { firstName, secondName } } = this;
