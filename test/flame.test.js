@@ -56,12 +56,12 @@ describe('Flame', function () {
   describe('#getRelationship', function () {
     it('should return the correct relationship', function () {
       const relationship = this.flame.getRelationship(3);
-      expect(relationship).to.eql('affection');
+      expect(relationship).to.eql('affectionate');
     });
 
     it('should handle big numbers well', function () {
       const relationship = this.flame.getRelationship(67826);
-      expect(relationship).to.eql('friendship');
+      expect(relationship).to.eql('friends');
     });
 
     it('should handle zeroes in the end', function () {
@@ -73,7 +73,7 @@ describe('Flame', function () {
   describe('#init', function () {
     it('should return proper result', function () {
       const result = this.flame.init();
-      expect(result.relationship).to.eql('affection');
+      expect(result.relationship).to.eql('affectionate');
     });
 
     it('should return the original names', function () {

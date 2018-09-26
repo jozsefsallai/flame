@@ -15,7 +15,7 @@ class Flame {
       firstName,
       secondName
     };
-    this.flame = [ 'friendship', 'love', 'affection', 'marriage', 'enemies' ];
+    this.flame = [ 'friends', 'lovers', 'affectionate', 'marriage', 'enemies' ];
     this.similars = [];
   }
 
