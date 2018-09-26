@@ -20,7 +20,7 @@ const acronym = chalk.bold(
   chalk.red('E')
 );
 
-log(`${acronym} - Friends, Love, Affection, Marriage, Enemies\n`);
+log(`${acronym} - Friends, Lovers, Affectionate, Marriage, Enemies\n`);
 
 inquirer.prompt([
   {
