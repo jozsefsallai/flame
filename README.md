@@ -5,28 +5,58 @@
 [![Dependencies](https://img.shields.io/david/jozsefsallai/flame.svg?style=flat-square)](https://david-dm.org/jozsefsallai/flame)
 [![Coverage](https://img.shields.io/coveralls/github/jozsefsallai/flame/master.svg?style=flat-square)](https://coveralls.io/github/jozsefsallai/flame?branch=master)
 
-Flame game for the command line. Node (8.x or later) is required for running the program [(How To Play)](https://www.wikihow.com/Play-%22Flame%22#Playing_FLAME_sub).
+Flame game for the command line and Node. Requires Node (8.x or later). [(How To Play)](https://www.wikihow.com/Play-%22Flame%22#Playing_FLAME_sub).
 
 ## Usage
 
-Clone the repo:
+### As Module
 
-```
-git clone git@github.com:jozsefsallai/flame
-```
+1. Install the package using npm or Yarn
 
-Install the dependencies:
-
-```
-npm i -g yarn
-yarn
+```sh
+npm i flame-game
+# or
+yarn add flame-game
 ```
 
-Run the thing:
+2. Import the module
 
+```js
+const flame = require('flame-game');
 ```
-node .
+
+3. Pass input to it
+
+```js
+// Two strings
+flame('Joe', 'Missy');
+
+// or an object
+flame({
+  firstName: 'Joe',
+  secondName: 'Missy'
+});
 ```
+
+**Returned data:**
+
+```js
+{
+  relationship: 'affectionate', // result of the algorithm
+  firstName: 'Joe',             // the original name 1
+  secondName: 'Missy'           // the original name 2
+}
+```
+
+### In the CLI
+
+1. Install the program globally
+
+```sh
+npm i -g flame-game
+```
+
+2. Run `flame` and enter some input.
 
 ## Contribution
 

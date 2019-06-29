@@ -1,40 +1,25 @@
-const inquirer = require('inquirer');
-const chalk = require('chalk');
-const Flame = require('./flame');
+const Flame = require('./lib/flame');
 
-const { clear, log, error } = console;
+module.exports = (...args) => {
+  let opts;
 
-const output = result => {
-  const relationship = chalk.bold.blue(result.relationship.toUpperCase());
-  log(`${result.firstName} and ${result.secondName}'s relationship is: ${relationship}!`);
-  process.exit(0);
+  if (!args.length) {
+    throw new Error('Arguments not passed to Flame function.');
+  }
+
+  if (typeof args[0] === 'string' && typeof args[1] === 'string') {
+    opts = {
+      firstName: args[0],
+      secondName: args[1]
+    };
+  } else if (args[0].firstName && args[0].secondName) {
+    opts = args[0];
+  } else {
+    throw new TypeError('Invalid arguments passed to the Flame function.');
+  }
+
+  const flame = new Flame(opts);
+  return flame.init();
 };
 
-clear();
-
-const acronym = chalk.bold(
-  chalk.blue('F'),
-  chalk.green('L'),
-  chalk.cyan('A'),
-  chalk.magenta('M'),
-  chalk.red('E')
-);
-
-log(`${acronym} - Friends, Lovers, Affectionate, Marriage, Enemies\n`);
-
-inquirer.prompt([
-  {
-    name: 'firstName',
-    type: 'string',
-    message: 'Name 1:'
-  },
-  {
-    name: 'secondName',
-    type: 'string',
-    message: 'Name 2:'
-  }
-])
-  .then(answers => new Flame(answers))
-  .then(flame => flame.init())
-  .then(result => output(result))
-  .catch(err => error(err));
+module.exports.Flame = Flame;

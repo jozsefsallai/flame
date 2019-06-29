@@ -1,12 +1,17 @@
 {
   "name": "flame-game",
+  "description": "Flame game for Node and the command line",
   "version": "1.0.0",
   "main": "index.js",
+  "repository": "jozsefsallai/flame",
+  "author": "József Sallai @jozsefsallai",
   "license": "MIT",
-  "private": true,
   "dependencies": {
     "chai": "^4.1.2",
     "chalk": "^2.4.1",
+    "inquirer": "^6.2.0"
+  },
+  "devDependencies": {
     "coveralls": "^3.0.2",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",
@@ -14,10 +19,19 @@
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-standard": "^3.1.0",
-    "inquirer": "^6.2.0",
     "mocha": "^5.2.0",
     "nyc": "^13.0.1"
   },
+  "bin": {
+    "flame": "./bin/flame"
+  },
+  "keywords": [
+    "flame", "flame game", "cli", "algorithm"
+  ],
+  "files": [
+    "/bin",
+    "/lib"
+  ],
   "scripts": {
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
     "lint": "eslint . --ignore-pattern *.test.js",

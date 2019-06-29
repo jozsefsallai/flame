@@ -1,5 +1,5 @@
-const expect = require('chai').expect;
-const Flame = require('../flame');
+const { expect } = require('chai');
+const Flame = require('../lib/flame');
 
 describe('Flame', function () {
   beforeEach(function () {
@@ -16,7 +16,7 @@ describe('Flame', function () {
         secondName: null
       });
 
-      expect(flame).to.throw(Error, 'Please provide both names.');
+      return expect(flame).to.throw(Error, 'Please provide both names.');
     });
   });
 
@@ -26,11 +26,11 @@ describe('Flame', function () {
   });
 
   it('should initiate empty similarities array', function () {
-    expect(this.flame.similars).to.have.length(0);
+    return expect(this.flame.similars).to.have.length(0);
   });
 
   it('should store names in their original form', function () {
-    expect(this.flame.original).to.eql({
+    return expect(this.flame.original).to.eql({
       firstName: 'Joseph',
       secondName: 'Missy'
     });
@@ -39,7 +39,7 @@ describe('Flame', function () {
   describe('#getSimilarLetters', function () {
     it('should return correct values', function () {
       const letters = this.flame.getSimilarLetters();
-      expect(letters).to.eql(['s']);
+      return expect(letters).to.eql(['s']);
     });
   });
 
@@ -56,24 +56,24 @@ describe('Flame', function () {
   describe('#getRelationship', function () {
     it('should return the correct relationship', function () {
       const relationship = this.flame.getRelationship(3);
-      expect(relationship).to.eql('affectionate');
+      return expect(relationship).to.eql('affectionate');
     });
 
     it('should handle big numbers well', function () {
       const relationship = this.flame.getRelationship(67826);
-      expect(relationship).to.eql('friends');
+      return expect(relationship).to.eql('friends');
     });
 
     it('should handle zeroes in the end', function () {
       const relationship = this.flame.getRelationship(20);
-      expect(relationship).to.eql('enemies');
+      return expect(relationship).to.eql('enemies');
     });
   });
 
   describe('#init', function () {
     it('should return proper result', function () {
       const result = this.flame.init();
-      expect(result.relationship).to.eql('affectionate');
+      return expect(result.relationship).to.eql('affectionate');
     });
 
     it('should return the original names', function () {
