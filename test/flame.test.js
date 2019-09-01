@@ -68,6 +68,11 @@ describe('Flame', function () {
       const relationship = this.flame.getRelationship(20);
       return expect(relationship).to.eql('enemies');
     });
+
+    it('should return friends for sub-zero', function () {
+      const relationship = this.flame.getRelationship(-5);
+      return expect(relationship).to.eql('friends');
+    });
   });
 
   describe('#init', function () {
